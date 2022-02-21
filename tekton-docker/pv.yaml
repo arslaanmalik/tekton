@@ -11,5 +11,5 @@ spec:
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: "/home/systemsltd/tekton/tekton-docker/workspace"
+    path: "/home/arslaanmalik/tekton/tekton-docker/workspace"
 
