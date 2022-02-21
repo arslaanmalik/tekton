@@ -1,0 +1,27 @@
+
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: ace-run-
+  namespace: tekton-builds
+spec:
+  pipelineRef:
+    name: ace
+  serviceAccountName: my-serviceaccount
+  workspaces:
+  - name: pipeline-ws
+    volumeClaimTemplate:
+      metadata:
+        finalizers: []
+      spec:
+        accessModes:
+          - ReadWriteMany
+        resources:
+          requests:
+            storage: 1Gi
+  - name: git-credential-ws
+    secret:
+      secretName: git-auth-token
+  - name: kubeconfig-ws
+    configMap:
+        name: kubeconfig

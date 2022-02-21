@@ -1,0 +1,8 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: run-task
+spec:
+  taskRef:
+    name: git-clone-and-print-title
+

@@ -1,0 +1,13 @@
+kind: Task
+apiVersion: tekton.dev/v1beta1
+metadata:
+  description: Clone a git repo
+  name: git-clone-and-print-title
+spec:
+  steps:
+  - name: clone
+    image:  alpine/git:v2.26.2
+    script: |
+        git clone https://github.com/mfarhanSystemsltd/ACE-HelloWorld.git
+        ls
+
